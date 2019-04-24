@@ -1,6 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
+
 def create_rectangle(start_x, end_x, start_y, end_y):
     # start_x = 200
     # end_x = 600
@@ -33,3 +34,11 @@ def create_rectangle(start_x, end_x, start_y, end_y):
 
     return rectangle
     # print(rectangle)
+
+def create_line(start_x, end_x, start_y, end_y):
+    # x = np.linspace(start_x, end_x, max(end_x,start_x)-min(end_x, start_x))
+    # y = np.linspace(start_y, end_y, max(end_y, start_y)-min(end_y, start_y))
+    x = np.linspace(start_x, end_x, 200)
+    y = np.linspace(start_y, end_y, 200)
+    init = np.array([x, y]).T
+    return init
