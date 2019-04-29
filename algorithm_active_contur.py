@@ -45,13 +45,13 @@ class ActiveContour:
                 y = np.linspace(start_y, end_y, 10)
                 init = np.array([x, y]).T
                 final_init = np.vstack((final_init, init))
-            else:
-                start_x,start_y = list_of_points[-1][0], list_of_points[-1][1]
-                end_x, end_y = list_of_points[0][0], list_of_points[0][1]
-                x = np.linspace(start_x, end_x, 10)
-                y = np.linspace(start_y, end_y, 10)
-                init = np.array([x, y]).T
-                final_init = np.vstack((final_init, init))
+            # else:
+            #     start_x,start_y = list_of_points[-1][0], list_of_points[-1][1]
+            #     end_x, end_y = list_of_points[0][0], list_of_points[0][1]
+            #     x = np.linspace(start_x, end_x, 10)
+            #     y = np.linspace(start_y, end_y, 10)
+            #     init = np.array([x, y]).T
+            #     final_init = np.vstack((final_init, init))
 
         init_for_drawing = final_init.astype('uint8')
         # init_for_drawing = np.unique(init_for_drawing, axis=1)

@@ -104,7 +104,7 @@ class WidgetGallery(QDialog):
         self.max_iteration_spinbox.setValue(500)
         self.time_label = QLabel()
 
-        options_list = ['periodic', 'free', 'fixed', 'free-fixed',
+        options_list = ['fixed', 'free', 'periodic', 'free-fixed',
                  'fixed-free', 'fixed-fixed', 'free-free']
         for each in options_list:
             self.boundary_option.addItem(each)
@@ -252,20 +252,19 @@ class WidgetGallery(QDialog):
         h = self.input_img_groupbox.height()
         w = self.input_img_groupbox.width()
         # print('scaled to =', h)
-        mainsmaller_pixmap = pixmap.scaled(400, 400,Qt.KeepAspectRatio, Qt.FastTransformation)
-        place_holder.setPixmap(mainsmaller_pixmap)
-        print(place_holder.frameGeometry())
+        # mainsmaller_pixmap = pixmap.scaled(400, 400,Qt.KeepAspectRatio, Qt.FastTransformation)
+        place_holder.addPixmap(pixmap)
 
     def plot_graph(self, snake, init, img):
         ax = self.figure.add_subplot(111)
         ax.clear()
         import matplotlib.pyplot as plt
         ax.imshow(img, cmap=plt.cm.gray)
-        ax.plot(init[:, 0], init[:, 1], '--r', lw=1)
-        ax.plot(snake[:, 0], snake[:, 1], '-b', lw=1)
+        # ax.plot(init[:, 0], init[:, 1], '--', lw=1)
+        ax.plot(snake[:, 0], snake[:, 1], '-g', lw=2)
         ax.set_xticks([]), ax.set_yticks([])
         ax.axis([0, img.shape[1], img.shape[0], 0])
-        self.render_image_resized(self.current_img, self.input_img_label)
+        self.render_image_resized(self.current_img, self.input_scene)
 
         self.canvas.draw()
         # plt.savefig('test.png', bbox_inches="tight")
